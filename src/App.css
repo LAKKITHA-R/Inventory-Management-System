@@ -1,0 +1,1226 @@
+
+/* =========================================
+   STOCKLEAF - APPLICATION STYLES
+   ========================================= */
+
+/* Global Layout and Scrolling */
+html {
+  min-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: auto;
+}
+
+body {
+  min-height: 100vh;
+  height: auto;
+  margin: 0;
+  font-size: 16px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#root {
+  min-height: 100vh;
+  height: auto;
+  overflow: visible;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.app {
+  min-height: 100vh;
+  height: auto;
+  overflow: visible;
+  font-size: 16px;
+}
+
+.main-content {
+  min-height: 100vh;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+.page-container {
+  min-height: 0;
+  height: auto;
+  max-width: 100%;
+  font-size: 16px;
+}
+
+/* =========================================
+   FONT SIZES
+   ========================================= */
+
+.page-header h1,
+.app h1 {
+  font-size: 28px;
+}
+
+.page-header p {
+  font-size: 15px;
+}
+
+.app h2 {
+  font-size: 23px;
+}
+
+.app h3 {
+  font-size: 19px;
+}
+
+.app h4,
+.app h5,
+.app h6 {
+  font-size: 16px;
+}
+
+.app p,
+.app label,
+.app span,
+.app li,
+.app a,
+.app th,
+.app td {
+  font-size: 15px;
+}
+
+.app input,
+.app select,
+.app textarea,
+.app button {
+  font-size: 15px;
+}
+
+.app small {
+  font-size: 13px;
+}
+
+.stat-card h3 {
+  font-size: 16px;
+}
+
+.stat-card p {
+  font-size: 24px;
+}
+
+/* Product Names */
+.product-name,
+.low-stock-product-name,
+.stock-management-product-name {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* =========================================
+   PAGINATION
+   ========================================= */
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 18px 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+.pagination-info {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pagination-controls select {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.pagination-controls button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* =========================================
+   EXPORT BUTTONS
+   ========================================= */
+
+.export-buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.export-buttons button {
+  padding: 10px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+  color: #1f2937;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.export-buttons button:first-child {
+  background: #e7f7ed;
+  color: #167443;
+  border-color: #b7e4c7;
+}
+
+.export-buttons button:first-child:hover {
+  background: #167443;
+  color: #fff;
+}
+
+.export-buttons button:last-child {
+  background: #fff0f0;
+  color: #c62828;
+  border-color: #f3c1c1;
+}
+
+.export-buttons button:last-child:hover {
+  background: #c62828;
+  color: #fff;
+}
+
+.export-buttons button:active {
+  transform: scale(0.97);
+}
+
+/* =========================================
+   CREATE BILL PAGE
+   ========================================= */
+
+.create-bill-container {
+  width: calc(100% - 30px);
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  font-family: Arial, sans-serif;
+}
+
+.create-bill-container h2 {
+  color: #1e293b;
+  font-size: 28px;
+  margin-bottom: 25px;
+}
+
+.bill-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.bill-form label {
+  display: block;
+  margin-bottom: 8px;
+  color: #334155;
+  font-weight: 600;
+}
+
+.bill-form input,
+.bill-form select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+}
+
+.bill-form input:focus,
+.bill-form select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.bill-table-wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 25px 0;
+}
+
+.bill-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.bill-table th {
+  padding: 14px;
+  background: #1e3a8a;
+  color: #fff;
+  text-align: left;
+}
+
+.bill-table td {
+  padding: 13px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.bill-total {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 18px;
+  margin-top: 20px;
+  background: #eff6ff;
+  border-radius: 10px;
+  color: #1e3a8a;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.bill-actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.bill-actions button {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.bill-save-btn {
+  background: #2563eb;
+  color: #fff;
+}
+
+.bill-save-btn:hover {
+  background: #1d4ed8;
+}
+
+.bill-cancel-btn {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.bill-remove-btn {
+  padding: 7px 12px;
+  border-radius: 6px;
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* Product Selection */
+.bill-product-selection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 500px;
+  margin: 24px 0;
+}
+
+.bill-product-selection label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #234b35;
+}
+
+.bill-select {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1px solid #cbd5ce;
+  border-radius: 10px;
+  background: #fff;
+  color: #26352b;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.bill-select:hover {
+  border-color: #39945c;
+}
+
+.bill-select:focus {
+  border-color: #27834b;
+  box-shadow: 0 0 0 3px rgba(39, 131, 75, 0.15);
+}
+
+.bill-select option {
+  padding: 10px;
+  background: #fff;
+  color: #26352b;
+}
+
+.bill-select option:disabled {
+  color: #999;
+}
+
+/* =========================================
+   BILLING HISTORY PAGE
+   ========================================= */
+
+.billing-container {
+  width: calc(100% - 30px);
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 28px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  font-family: Arial, sans-serif;
+}
+
+.billing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.billing-header h2 {
+  margin: 0;
+  color: #1e293b;
+  font-size: 28px;
+}
+
+.billing-search {
+  width: 280px;
+  max-width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+}
+
+.billing-search:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.billing-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.billing-summary-card {
+  padding: 22px;
+  border: 1px solid #dbeafe;
+  border-radius: 12px;
+  background: #eff6ff;
+}
+
+.billing-summary-card p {
+  margin: 0 0 10px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.billing-summary-card h3 {
+  margin: 0;
+  color: #1e3a8a;
+  font-size: 25px;
+}
+
+.billing-table-wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+}
+
+.billing-table {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+}
+
+.billing-table thead {
+  background: #1e3a8a;
+  color: #fff;
+}
+
+.billing-table th {
+  padding: 15px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.billing-table td {
+  padding: 14px 15px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #334155;
+  font-size: 14px;
+}
+
+.billing-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.billing-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.billing-amount {
+  color: #15803d;
+  font-weight: 700;
+}
+
+.billing-status {
+  display: inline-block;
+  padding: 5px 11px;
+  border-radius: 20px;
+  background: #dcfce7;
+  color: #166534;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.billing-view-btn {
+  padding: 8px 13px;
+  border: none;
+  border-radius: 7px;
+  background: #2563eb;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.billing-view-btn:hover {
+  background: #1d4ed8;
+}
+
+.billing-back-btn {
+  padding: 11px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #e2e8f0;
+  color: #334155;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.billing-back-btn:hover {
+  background: #cbd5e1;
+}
+
+.billing-empty {
+  padding: 35px;
+  text-align: center;
+  color: #64748b;
+}
+
+.billing-error {
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.billing-loading {
+  padding: 30px;
+  text-align: center;
+  color: #64748b;
+}
+
+/* Purchased Products */
+.purchased-products-cell {
+  min-width: 200px;
+  vertical-align: top;
+}
+
+.purchased-products-cell .bill-cancel-btn {
+  padding: 9px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #16472c;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.purchased-products-cell .bill-cancel-btn:hover {
+  background: #16462a;
+  transform: translateY(-1px);
+}
+
+.purchased-products-cell .bill-cancel-btn:focus-visible {
+  outline: 2px solid #93c5fd;
+  outline-offset: 3px;
+}
+
+.purchased-products {
+  min-width: 190px;
+  max-width: 280px;
+  margin-top: 10px;
+  padding: 12px;
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #1e293b;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.purchased-product-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.purchased-product-item:last-child {
+  border-bottom: none;
+}
+
+.purchased-product-item strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #1d472b;
+}
+
+.purchased-product-item p {
+  margin: 4px 0;
+  font-size: 13px;
+  color: #475569;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+
+@media (max-width: 768px) {
+  .create-bill-container,
+  .billing-container {
+    width: calc(100% - 24px);
+    margin: 12px auto;
+    padding: 16px;
+  }
+
+  .bill-form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .billing-header h2,
+  .create-bill-container h2 {
+    font-size: 23px;
+  }
+
+  .billing-search {
+    width: 100%;
+  }
+
+  .billing-summary {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bill-total {
+    font-size: 17px;
+  }
+
+  .pagination {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .pagination-controls {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .export-buttons {
+    gap: 8px;
+  }
+
+  .export-buttons button {
+    padding: 9px 12px;
+  }
+
+  .bill-actions {
+    justify-content: stretch;
+  }
+
+  .bill-actions button {
+    flex: 1 1 auto;
+  }
+}
+/* =========================================
+   STOCKLEAF - MEDIUM FONT SIZE
+   ========================================= */
+
+.app {
+  font-size: 15px;
+}
+
+/* Headings */
+.app h1,
+.page-header h1 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.app h2,
+.billing-header h2,
+.create-bill-container h2 {
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.app h3,
+.billing-summary-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.app h4,
+.app h5,
+.app h6 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Text and labels */
+.app p,
+.app label,
+.app li,
+.app a,
+.app th,
+.app td,
+.app span,
+.page-header p {
+  font-size: 14px;
+}
+
+/* Product names */
+.product-name,
+.low-stock-product-name,
+.stock-management-product-name {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Forms */
+.app input,
+.app select,
+.app textarea,
+.bill-form input,
+.bill-form select,
+.bill-select,
+.billing-search,
+.pagination-controls select {
+  font-size: 14px;
+}
+
+/* Buttons */
+.app button,
+.bill-actions button,
+.billing-view-btn,
+.billing-back-btn,
+.export-buttons button,
+.purchased-products-cell .bill-cancel-btn {
+  font-size: 14px;
+}
+
+/* Small text */
+.app small,
+.pagination-info,
+.purchased-product-item p {
+  font-size: 12px;
+}
+
+/* Dashboard cards */
+.stat-card h3 {
+  font-size: 15px;
+}
+
+.stat-card p {
+  font-size: 21px;
+}
+
+/* Billing summary */
+.billing-summary-card p {
+  font-size: 13px;
+}
+
+.billing-summary-card h3 {
+  font-size: 21px;
+}
+
+/* Table spacing */
+.bill-table th,
+.billing-table th {
+  padding: 12px;
+}
+
+.bill-table td,
+.billing-table td {
+  padding: 11px 12px;
+}
+
+/* Pagination */
+.pagination {
+  font-size: 14px;
+}
+
+.pagination-controls button,
+.pagination-controls select {
+  font-size: 13px;
+}
+
+/* Export buttons */
+.export-buttons button {
+  padding: 9px 14px;
+}
+
+/* Responsive font sizes */
+@media (max-width: 768px) {
+  .app h1,
+  .page-header h1 {
+    font-size: 22px;
+  }
+
+  .app h2,
+  .billing-header h2,
+  .create-bill-container h2 {
+    font-size: 19px;
+  }
+
+  .app h3,
+  .billing-summary-card h3 {
+    font-size: 17px;
+  }
+}
+
+/* FORCE MEDIUM SIZE ACROSS STOCKLEAF */
+html {
+  font-size: 15px !important;
+}
+
+body,
+#root,
+.app,
+.main-content,
+.page-container {
+  font-size: 15px !important;
+}
+
+.app h1,
+.page-header h1 {
+  font-size: 24px !important;
+}
+
+.app h2,
+.billing-header h2,
+.create-bill-container h2 {
+  font-size: 21px !important;
+}
+
+.app h3,
+.billing-summary-card h3 {
+  font-size: 18px !important;
+}
+
+.app p,
+.app label,
+.app li,
+.app th,
+.app td,
+.app a,
+.app span,
+.app input,
+.app select,
+.app textarea,
+.app button,
+.billing-container p,
+.create-bill-container label {
+  font-size: 14px !important;
+}
+
+.app small {
+  font-size: 12px !important;
+}
+
+.product-name,
+.low-stock-product-name,
+.stock-management-product-name {
+  font-size: 15px !important;
+  font-weight: 500 !important;
+}
+
+/* =========================================
+   STOCKLEAF - FINAL FONT & SCROLL FIX
+   ========================================= */
+
+/* Allow the complete application to scroll */
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  height: auto;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#root,
+.app,
+.workspace,
+.main-content,
+.page-container {
+  min-height: 0;
+  height: auto;
+  overflow-y: visible;
+}
+
+/* Consistent medium font size */
+body,
+.app,
+.workspace,
+.main-content,
+.page-container {
+  font-size: 15px !important;
+}
+
+/* Headings */
+.app h1,
+.workspace h1,
+.page-header h1 {
+  font-size: 24px !important;
+  line-height: 1.4;
+}
+
+.app h2,
+.workspace h2,
+.billing-header h2,
+.create-bill-container h2 {
+  font-size: 21px !important;
+}
+
+.app h3,
+.workspace h3,
+.billing-summary-card h3 {
+  font-size: 18px !important;
+}
+
+/* Normal text */
+.app p,
+.workspace p,
+.app label,
+.workspace label,
+.app li,
+.workspace li,
+.app th,
+.workspace th,
+.app td,
+.workspace td {
+  font-size: 14px !important;
+}
+
+/* Product names */
+.product-name,
+.low-stock-product-name,
+.stock-management-product-name,
+.product-cell strong {
+  font-size: 15px !important;
+  font-weight: 500 !important;
+}
+
+/* Input fields */
+.app input,
+.app select,
+.app textarea,
+.workspace input,
+.workspace select,
+.workspace textarea,
+.bill-form input,
+.bill-form select,
+.bill-select,
+.billing-search {
+  font-size: 14px !important;
+}
+
+/* Buttons */
+.app button,
+.workspace button,
+.export-buttons button,
+.bill-actions button,
+.billing-view-btn,
+.billing-back-btn {
+  font-size: 14px !important;
+}
+
+/* Supporting text */
+.app small,
+.workspace small,
+.pagination-info,
+.purchased-product-item p {
+  font-size: 12px !important;
+}
+
+/* Keep tables scrollable horizontally when needed */
+.bill-table-wrapper,
+.billing-table-wrapper {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Smaller screens */
+@media (max-width: 768px) {
+  .app h1,
+  .workspace h1,
+  .page-header h1 {
+    font-size: 22px !important;
+  }
+
+  .app h2,
+  .workspace h2 {
+    font-size: 19px !important;
+  }
+}
+
+
+/* =========================================
+   NAVBAR & PAGE SCROLL FIX
+   ========================================= */
+
+/* Main application */
+html,
+body,
+#root {
+  min-height: 100%;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.app {
+  min-height: 100vh;
+  height: auto;
+  overflow: visible;
+}
+
+/* Sidebar / Navbar stays fixed */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 1000;
+}
+
+/* Main page scrolls vertically */
+.workspace {
+  min-height: 100vh;
+  height: auto;
+  margin-left: 254px;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+/* Page content */
+.main-content,
+.page-container {
+  min-height: 0;
+  height: auto;
+  overflow: visible;
+}
+
+/* Smaller screens */
+@media (max-width: 768px) {
+  .workspace {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+/* =========================================
+   STOCKLEAF - NAVBAR SCROLL FIX
+   ========================================= */
+
+/* Sidebar stays fixed */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+
+  height: 100vh;
+  height: 100dvh;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+
+  scrollbar-width: thin;
+  overscroll-behavior-y: contain;
+  z-index: 1000;
+}
+
+/* Navigation links can scroll */
+.nav-links {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  scrollbar-width: thin;
+  overscroll-behavior-y: contain;
+}
+
+/* Keep profile section at the bottom */
+.sidebar-bottom {
+  flex-shrink: 0;
+}
+
+/* Main page scrolls independently */
+.workspace {
+  min-height: 100vh;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+/* Allow page content to grow */
+.main-content,
+.page-container {
+  min-height: 0;
+  height: auto;
+  overflow: visible;
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+  .workspace {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+.bill-cancel-btn {
+  background-color: #ffffff;
+  color: #21804a;
+  border: 1px solid #21804a;
+  padding: 11px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bill-cancel-btn:hover {
+  background-color: #21804a;
+  color: #ffffff;
+  box-shadow: 0 3px 8px rgba(33, 128, 74, 0.2);
+}
+
+.bill-cancel-btn:active {
+  transform: scale(0.98);
+}
+
+.bill-cancel-btn:focus-visible {
+  outline: 2px solid #21804a;
+  outline-offset: 3px;
+}
+
+/* Billing pagination */
+.billing-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 18px;
+  padding: 14px 0;
+  font-size: 15px;
+}
+
+.billing-page-size,
+.billing-page-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.billing-page-size select {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  background: #fff;
+  font-size: 15px;
+}
+
+.billing-page-btn {
+  padding: 9px 15px;
+  border: 1px solid #21804a;
+  border-radius: 7px;
+  background: #fff;
+  color: #21804a;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.billing-page-btn:hover:not(:disabled) {
+  background: #21804a;
+  color: #fff;
+}
+
+.billing-page-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.billing-page-info,
+.billing-page-number {
+  font-size: 14px;
+  color: #4b5563;
+}
+
+@media (max-width: 768px) {
+  .billing-pagination {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .billing-page-controls {
+    gap: 8px;
+  }
+}
