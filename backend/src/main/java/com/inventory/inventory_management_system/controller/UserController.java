@@ -22,10 +22,19 @@ public class UserController {
 
         return userService.loginUser(username, password);
     }
+
+    @GetMapping("/test")
+    public String test() {
+        return "UserController is working!";
+    }
+
+
     @PostMapping("/register")
     public User registerUser(@RequestBody User user) {
         return userService.registerUser(user);
     }
+
+
 
 
 }
