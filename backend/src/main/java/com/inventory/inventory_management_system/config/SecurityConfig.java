@@ -41,7 +41,7 @@ public class SecurityConfig {
         configuration.setAllowedOrigins(
                 List.of(
                         "http://localhost:5173",
-                        "https://robotics-inventory-management-system.vercel.app"
+                        "https://robotics-inventory-navy.vercel.app"
                 )
         );
 
