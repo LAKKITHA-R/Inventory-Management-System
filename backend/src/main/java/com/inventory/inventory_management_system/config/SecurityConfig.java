@@ -86,7 +86,8 @@ public class SecurityConfig {
                         // Login and Register
                         .requestMatchers(
                                 "/users/register",
-                                "/users/login"
+                                "/users/login",
+                                "/users/test"
                         ).permitAll()
 
                         // GET - ADMIN and STAFF
