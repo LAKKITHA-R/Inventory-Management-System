@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
-const API = "http://localhost:8080";
+import BASE_URL from "./api";
+const API = BASE_URL;
 
 function CreateBill() {
   const [products, setProducts] = useState([]);

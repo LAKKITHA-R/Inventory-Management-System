@@ -4,9 +4,9 @@ import autoTable from "jspdf-autotable";
 import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import BASE_URL from "../api";
 
-const API = "http://localhost:8080/api/product";
-
+const API = `${BASE_URL}/api/product`;
 export default function Products() {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);

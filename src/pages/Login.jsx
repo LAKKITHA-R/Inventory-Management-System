@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import BASE_URL from "../api";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -15,10 +16,14 @@ export default function Login() {
     setErrorMessage("");
     setLoading(true);
 
-    try {
-      const response = await axios.post("http://localhost:8080/users/login", null, {
-        params: { username: username.trim(), password }
-      });
+ try {
+  const response = await axios.post(
+    `${BASE_URL}/users/login`,
+    null,
+    {
+      params: { username: username.trim(), password }
+    }
+  );
       const token = typeof response.data === "string" ? response.data : response.data?.token;
 
       if (!token || !token.includes(".")) {

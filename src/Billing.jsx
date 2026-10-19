@@ -4,7 +4,7 @@ import axios from "axios";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
 import BillInvoice from "./BillInvoice";
-
+import BASE_URL from "./api";
 function Billing() {
   const [bills, setBills] = useState([]);
   const [error, setError] = useState("");
@@ -32,7 +32,7 @@ function Billing() {
       const token = localStorage.getItem("token");
 
       const response = await axios.get(
-        "http://localhost:8080/api/billing",
+  `${BASE_URL}/api/billing`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -58,7 +58,7 @@ function Billing() {
       const token = localStorage.getItem("token");
 
       const response = await axios.get(
-        `http://localhost:8080/api/billing/${billId}/items`,
+        `${BASE_URL}/api/billing`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -118,7 +118,7 @@ function Billing() {
         const token = localStorage.getItem("token");
 
         const response = await axios.get(
-          `http://localhost:8080/api/billing/${bill.id}/items`,
+          `${BASE_URL}/api/billing`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

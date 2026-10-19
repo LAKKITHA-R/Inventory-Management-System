@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
+import BASE_URL from "../api";
 
 export default function StockHistory() {
   const [products, setProducts] = useState([]);
@@ -13,7 +14,7 @@ export default function StockHistory() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/product", {
+      .get(`${BASE_URL}/api/product`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -48,7 +49,7 @@ export default function StockHistory() {
 
     try {
       const response = await axios.get(
-        `http://localhost:8080/api/product/${productId}/stock-history`,
+       `${BASE_URL}/api/product/${productId}/stock-history`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

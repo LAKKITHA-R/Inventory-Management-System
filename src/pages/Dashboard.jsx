@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import BASE_URL from "../api";
 export default function Dashboard() {
   const [products, setProducts] = useState([]);
   const [lowStockProducts, setLowStockProducts] = useState([]);
@@ -18,13 +18,13 @@ export default function Dashboard() {
       const token = localStorage.getItem("token");
       const headers = { Authorization: `Bearer ${token}` };
 
-      try {
-        const [productsResponse, lowStockResponse] = await Promise.all([
-          axios.get("http://localhost:8080/api/product", { headers }),
-          axios.get("http://localhost:8080/api/product/low-stock", {
-            headers,
-          }),
-        ]);
+     try {
+  const [productsResponse, lowStockResponse] = await Promise.all([
+    axios.get(`${BASE_URL}/api/product`, { headers }),
+    axios.get(`${BASE_URL}/api/product/low-stock`, {
+      headers,
+    }),
+  ]);
 
         setProducts(
           Array.isArray(productsResponse.data)

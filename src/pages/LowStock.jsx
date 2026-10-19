@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import BASE_URL from "../api";
 export default function LowStock() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -9,7 +9,7 @@ export default function LowStock() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    axios.get("http://localhost:8080/api/product/low-stock", {
+    axios.get(`${BASE_URL}/api/product/low-stock`, {
       headers: { Authorization: `Bearer ${token}` }
     }).then((response) => {
       setProducts(Array.isArray(response.data) ? response.data : []);

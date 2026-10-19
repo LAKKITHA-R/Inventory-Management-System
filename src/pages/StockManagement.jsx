@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import BASE_URL from "../api";
 export default function StockManagement() {
   const [products, setProducts] = useState([]);
   const [productId, setProductId] = useState("");
@@ -18,7 +18,7 @@ export default function StockManagement() {
   const fetchProducts = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8080/api/product",
+       `${BASE_URL}/api/product`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -101,7 +101,7 @@ export default function StockManagement() {
       }
 
       const response = await axios.put(
-        `http://localhost:8080/api/stock/${productId}/${type}`,
+        `${BASE_URL}/api/stock/${productId}/${type}`,
         null,
         {
           params,

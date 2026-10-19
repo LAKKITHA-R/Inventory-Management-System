@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import BASE_URL from "./api";
 export default function MonthlyAnalysis() {
   const today = new Date();
 
@@ -35,9 +35,9 @@ export default function MonthlyAnalysis() {
       try {
         const token = localStorage.getItem("token");
 
-        const response = await axios.get(
-          "http://localhost:8080/api/billing/monthly",
-          {
+      const response = await axios.get(
+  `${BASE_URL}/api/billing/monthly`,
+  {
             params: { year, month },
             headers: { Authorization: `Bearer ${token}` },
           }
