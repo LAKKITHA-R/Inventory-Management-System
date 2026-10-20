@@ -50,4 +50,13 @@ public class UserService {
                 user.getRole()
         );
     }
+
+    public User resetPassword(String username, String newPassword) {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        user.setPassword(passwordEncoder.encode(newPassword));
+        return userRepository.save(user);
+    }
+
 }
