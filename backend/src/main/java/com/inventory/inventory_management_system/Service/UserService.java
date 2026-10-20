@@ -21,6 +21,7 @@ public class UserService {
         this.jwtService = jwtService;
     }
 
+
     public User registerUser(User user) {
 
         if (userRepository.findByUsername(user.getUsername()).isPresent()) {
@@ -29,8 +30,13 @@ public class UserService {
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
+        if (user.getRole() == null || user.getRole().isBlank()) {
+            user.setRole("STAFF");
+        }
+
         return userRepository.save(user);
     }
+
 
     public String loginUser(String username, String password) {
 
