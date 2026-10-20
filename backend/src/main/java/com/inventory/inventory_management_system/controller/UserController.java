@@ -1,3 +1,4 @@
+
 package com.inventory.inventory_management_system.controller;
 
 import com.inventory.inventory_management_system.entity.User;
@@ -19,22 +20,11 @@ public class UserController {
     public String loginUser(
             @RequestParam String username,
             @RequestParam String password) {
-
         return userService.loginUser(username, password);
     }
-
-    @GetMapping("/test")
-    public String test() {
-        return "UserController is working!";
-    }
-
 
     @PostMapping("/register")
     public User registerUser(@RequestBody User user) {
         return userService.registerUser(user);
     }
-
-
-
-
 }

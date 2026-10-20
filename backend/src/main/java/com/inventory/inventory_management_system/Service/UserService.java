@@ -1,3 +1,4 @@
+
 package com.inventory.inventory_management_system.Service;
 
 import com.inventory.inventory_management_system.entity.User;
@@ -13,56 +14,58 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
 
-    public UserService(UserRepo userRepository,
-                       PasswordEncoder passwordEncoder,
-                       JwtService jwtService) {
+    public UserService(
+            UserRepo userRepository,
+            PasswordEncoder passwordEncoder,
+            JwtService jwtService) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtService = jwtService;
     }
 
-
     public User registerUser(User user) {
-
         if (userRepository.findByUsername(user.getUsername()).isPresent()) {
             throw new RuntimeException("Username already exists");
         }
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-
-        if (user.getRole() == null || user.getRole().isBlank()) {
-            user.setRole("STAFF");
-        }
+        user.setRole("STAFF");
 
         return userRepository.save(user);
     }
 
+    public void createAdminIfConfigured(
+            String username, String password) {
+
+        if (username == null || username.isBlank()
+                || password == null || password.isBlank()) {
+            return;
+        }
+
+        if (userRepository.findByUsername(username).isPresent()) {
+            return;
+        }
+
+        User admin = new User();
+        admin.setUsername(username);
+        admin.setPassword(passwordEncoder.encode(password));
+        admin.setRole("ADMIN");
+
+        userRepository.save(admin);
+    }
 
     public String loginUser(String username, String password) {
-
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() ->
                         new RuntimeException("Invalid username or password"));
-        System.out.println("LOGIN: User found");
 
         if (!passwordEncoder.matches(password, user.getPassword())) {
             throw new RuntimeException("Invalid username or password");
         }
-
-        System.out.println("LOGIN: Password matched");
 
         return jwtService.generateToken(
                 user.getUsername(),
                 user.getRole()
         );
     }
-
-    public User resetPassword(String username, String newPassword) {
-        User user = userRepository.findByUsername(username)
-                .orElseThrow(() -> new RuntimeException("User not found"));
-
-        user.setPassword(passwordEncoder.encode(newPassword));
-        return userRepository.save(user);
-    }
-
 }
