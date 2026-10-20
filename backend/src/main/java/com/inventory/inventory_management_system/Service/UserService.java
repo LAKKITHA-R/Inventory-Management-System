@@ -37,10 +37,13 @@ public class UserService {
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() ->
                         new RuntimeException("Invalid username or password"));
+        System.out.println("LOGIN: User found");
 
         if (!passwordEncoder.matches(password, user.getPassword())) {
             throw new RuntimeException("Invalid username or password");
         }
+
+        System.out.println("LOGIN: Password matched");
 
         return jwtService.generateToken(
                 user.getUsername(),
