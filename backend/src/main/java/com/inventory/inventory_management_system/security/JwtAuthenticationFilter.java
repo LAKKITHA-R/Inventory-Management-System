@@ -52,6 +52,15 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             String username = claims.getSubject();
             String role = claims.get("role", String.class);
 
+            if (role == null || role.isBlank()) {
+                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                return;
+            }
+
+            if (role.startsWith("ROLE_")) {
+                role = role.substring(5);
+            }
+
             UsernamePasswordAuthenticationToken authentication =
                     new UsernamePasswordAuthenticationToken(
                             username,
@@ -71,6 +80,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                             .getAuthorities());
 
         } catch (Exception e) {
+            e.printStackTrace(); // Temporary debugging
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             return;
         }

@@ -113,6 +113,12 @@ public class SecurityConfig {
                                 "/api/product/**"
                         ).hasRole("ADMIN")
 
+                        // Customer APIs - ADMIN and STAFF both allowed
+                        .requestMatchers(
+                                "/api/customers",
+                                "/api/customers/**"
+                        ).hasAnyRole("ADMIN", "STAFF")
+
                         .anyRequest().authenticated()
                 )
 

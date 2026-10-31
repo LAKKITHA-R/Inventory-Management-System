@@ -1,4 +1,3 @@
-
 package com.inventory.inventory_management_system.repository;
 
 import com.inventory.inventory_management_system.entity.Bill;
@@ -12,6 +11,16 @@ public interface BillRepository extends JpaRepository<Bill, Long> {
     List<Bill> findAllByOrderByBillDateDesc();
 
     List<Bill> findByBillDateBetweenOrderByBillDateDesc(
+            LocalDateTime start,
+            LocalDateTime end
+    );
+
+    List<Bill> findByCustomerPhoneOrderByBillDateDesc(
+            String customerPhone
+    );
+
+    List<Bill> findByCustomerPhoneAndBillDateBetweenOrderByBillDateDesc(
+            String customerPhone,
             LocalDateTime start,
             LocalDateTime end
     );
