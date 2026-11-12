@@ -41,7 +41,7 @@ public class SecurityConfig {
         configuration.setAllowedOrigins(
                 List.of(
                         "http://localhost:5173",
-                        "https://YOUR-PROJECT.netlify.app"
+                        "https://robotics-inventory-system.netlify.app"
                 )
         );
 
