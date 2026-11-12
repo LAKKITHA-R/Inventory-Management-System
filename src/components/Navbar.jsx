@@ -15,6 +15,7 @@ const links = [
     icon: "▤",
     adminOnly: true,
   },
+  { to: "/regular-customers", label: "Regular Customers", icon: "👥" },
 ];
 
 export default function Navbar() {

@@ -53,43 +53,49 @@ function Billing() {
     }
   };
 
-  const fetchBillItems = async (billId) => {
-    try {
-      const token = localStorage.getItem("token");
+const fetchBillItems = async (billId) => {
+  try {
+    const token = localStorage.getItem("token");
 
-      const response = await axios.get(
-        `${BASE_URL}/api/billing`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+    const response = await axios.get(
+      `${BASE_URL}/api/billing/${billId}/items`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
-      setBillItems((prev) => ({
-        ...prev,
-        [billId]: Array.isArray(response.data)
-          ? response.data
-          : [],
-      }));
+    const items = Array.isArray(response.data)
+      ? response.data
+      : [];
 
-      setError("");
-    } catch (err) {
-      console.error(
-        "Failed to load purchased products:",
-        err
-      );
+    console.log("Bill ID:", billId);
+    console.log("Purchased products:", items);
 
-      setBillItems((prev) => ({
-        ...prev,
-        [billId]: [],
-      }));
+    setBillItems((prev) => ({
+      ...prev,
+      [billId]: items,
+    }));
 
-      setError(
-        `Could not load products for bill ${billId}.`
-      );
-    }
-  };
+    setError("");
+  } catch (err) {
+    console.error(
+      "Failed to load purchased products:",
+      err
+    );
+
+    setBillItems((prev) => ({
+      ...prev,
+      [billId]: [],
+    }));
+
+    setError(
+      `Could not load products for bill ${billId}.`
+    );
+  }
+};
+
 
   const toggleBillItems = (billId) => {
     if (expandedBill === billId) {
