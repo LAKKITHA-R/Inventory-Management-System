@@ -32,8 +32,16 @@ public class CustomerController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Customer>> getAllCustomers() {
-        return ResponseEntity.ok(customerService.getAllCustomers());
+    public ResponseEntity<?> getAllCustomers() {
+        try {
+            return ResponseEntity.ok(customerService.getAllCustomers());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(Map.of("error", e.getMessage() == null
+                            ? "Unable to load customers"
+                            : e.getMessage()));
+        }
     }
 
     @PostMapping
